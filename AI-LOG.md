@@ -8,30 +8,22 @@ The final decisions, project structure, content, and implementation were reviewe
 
 ## Tailwind Color Palette
 
-AI was used to suggest a Tailwind color palette for the landing page.
+AI first suggested a neutral palette because the Figma work is deliberately Lo-Fi. The final landing palette keeps neutral `slate` colors for readable body text and dark mode, but restores PlayReal's recognizable colors:
 
-The suggested palette was based mainly on neutral colors:
-
-- `neutral-100` - main light background
-- `neutral-200` - secondary light sections
-- `neutral-300` - borders and wireframe-style elements
-- `neutral-400` - stronger borders
-- `neutral-500` - secondary text
-- `neutral-600` - body text
-- `neutral-700` - interactive elements
-- `neutral-800` - navigation and primary buttons
-- `neutral-900` - dark mode sections
-- `neutral-950` - dark mode main background
+- `blue-50` - light page sections and soft surfaces
+- `blue-100` and `blue-200` - borders and supporting surfaces
+- `blue-600` and `blue-700` - navigation, primary buttons, links, and visual emphasis
+- `blue-800` and `blue-950` - darker borders and the main display heading
+- `emerald-50` and `emerald-700` - active challenge and positive progress states
+- `amber-50` and `amber-700` - ranking-related status
+- `slate-600` - readable body text
+- `slate-800`, `slate-900`, and `slate-950` - dark mode surfaces
 
 ## What I Changed
 
-The original PlayReal design from previous assignments used more visible blue and other colors.
+The Figma wireframes remain grayscale because they are intentionally Lo-Fi, as requested for the wireframe deliverable. The landing page has a different role: it communicates the visual identity of the PlayReal product.
 
-For HW04, I changed the suggested direction to a grayscale palette because the current Figma wireframes are Lo-Fi and use neutral gray tones.
-
-I also used darker neutral values for dark mode while keeping enough contrast between backgrounds, text, borders, and interactive elements.
-
-The final palette was selected to keep the Tailwind landing page visually consistent with the Figma wireframes.
+For that reason, I restored blue as the main brand color for navigation, actions, borders, and visual emphasis. I added green and amber only where they communicate meaningful states, such as an active challenge, streak, or ranking. The dark mode keeps slate surfaces so the blue actions remain clear and readable.
 
 ## Tailwind Implementation
 
@@ -48,6 +40,14 @@ Tailwind utilities are used for:
 - Dark mode
 
 Responsive prefixes such as `sm:`, `md:`, and `lg:` are used throughout the page.
+
+## What I Learned About Tailwind
+
+Reviewing and adjusting the generated classes showed me that Tailwind utilities are small decisions that combine to form a layout. I learned that a class without a prefix applies first on mobile, while `sm:`, `md:`, and `lg:` progressively adjust the layout for larger screens.
+
+I also learned that `dark:` is a variant that can be combined with normal utilities, such as `dark:bg-slate-900` and `dark:text-slate-100`. It does not create a dark theme by itself; the page still needs to add or remove the `dark` class and save that preference in `localStorage`.
+
+Most importantly, reviewing the code helped me see that brand color should be used intentionally. Blue is reserved for PlayReal actions and emphasis, while green and amber represent meaningful progress states instead of decorative color.
 
 ## Dark Mode
 
